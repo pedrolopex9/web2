@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Performace List</title>
+    <link rel="stylesheet" type="text/css" href="/form/style.css">
+</head>
+<body>
+    <div class="login-form">
+        <h2>Perfomace List</h2>
+        <h2>Perfomando a sua rotina</h2>
+        <form id="login" action="/login" method="POST">
+            <div id="login-name">
+                <h2 class="name">E-mail</h2>
+                <input class="mail" id="mail" type="text" required name="mail" placeholder="Seu E-mail" size="40"><br>
+                <h2 class="name">Senha</h2>
+                <input class="password" id="senha" type="password" required name="senha" placeholder="Sua Senha" size="40"><br>
+                <button type="submit" id="login-submit" style="vertical-align:middle"><span>Login</span></button>
+            </div>
+        </form>
+        <a href="/register"><button style="vertical-align:middle"><span>Cadastrar</span></button></a>
+        <div id="error-message" style="color: red; margin-top: 10px;">
+            
+        </div>
+    </div>
+    <script>
+       
+        const params = new URLSearchParams(window.location.search);
+        const error = params.get('error');
+
+       
+        if (error === 'invalid_credentials') {
+            document.getElementById('error-message').textContent = 'E-mail ou senha incorretos. Tente novamente.';
+        }
+    </script>
+    <footer>
+        <p>&copy; 2024 Todos os direitos reservados Permoface List</p>
+    </footer>
+</body>
+
+</html>

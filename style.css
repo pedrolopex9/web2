@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+ body{
+     
+     font-family: 'Courier New', Courier, monospace;
+     color:#FFFFFF;
+     margin-top: 40px;
+     background-color: black;
+     text-align: center;
+     background-image: url('https://images6.alphacoders.com/135/1355276.jpeg');
+     background-position: center; /* Centraliza a imagem */
+     background-repeat: no-repeat; /* Não repetir a imagem */
+     background-size: cover; /* Para cobrir toda a tela */
+     overflow-x: hidden;
+     margin-bottom: 0em;
+
+}
+
+ul {
+    list-style-type: none; /* Remove os marcadores da lista */
+    padding: 0; /* Remove o preenchimento padrão da lista */
+}
+
+ul li {
+    display: inline-block; /* Garante que os itens da lista fiquem em linha */
+    margin-bottom: 25px; /* Espaçamento entre os itens */
+    font-size: 1.5em; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto dos itens */
+    margin-left: 40px; /* Espaçamento à esquerda de cada item */
+    vertical-align: top; /* Alinha os itens pela parte superior */
+    background-color: white;
+    color:#333;
+}
+
+.botao-editar,.botao-apagar {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 3px 6px; /* Dimensões menores dos botões */
+    cursor: pointer;
+    font-size: 0.8em; /* Reduzir o tamanho da fonte */
+}
+.botao-apagar {
+    background-color: red;
+    margin-left: 5px; /* Margem entre os botões */
+}
+
+.dashboard {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Isso é opcional para centralizar verticalmente */
+}
+
+.dashboard p {
+    text-align: center;
+}
+
+footer {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    font-size: 2em;
+}
+
+
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    
+}
+
+.sec2{
+    width: 800px;
+   
+    margin:auto;
+    
+    padding: 10px 0px 10px 0px;
+    text-align: right;
+}
+
+
+.rform{
+    width: 800px;
+    font-size: 25px;
+    margin:auto;
+    color: slateblue;
+    padding: 10px 0px 10px 0px;
+    text-align: right;
+}
+.im{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: fixed;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    width: 700px;
+    z-index: -1;
+
+}
+
+
+form{
+    padding: 10px;
+}
+
+#name{
+    width: 100%;
+    height: 100px;
+}
+.name{
+    margin-left: 20px;
+    margin-top: 30px;
+    
+    
+    font-size: 30px;
+    font-weight:700 ;
+
+}
+
+#jokeIcon img {
+    width: 150px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
+/* Estilo para o posicionamento do jokeContainer */
+#jokeContainer {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Estilo para o footer específico da página Dashboard */
+#dashboardFooter {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Garante que o position absolute no jokeContainer funcione corretamente */
+}
+
+
+input{
+    font-size: 20px;
+    
+    border-radius: 6px;
+    left: 200px;
+    top: -37px;
+    padding: 10px 10px;
+}
+
+button{
+    font-size: 18px;
+    border-radius: 8px;
+    text-align: center;
+    /* padding: 10px 10px; */
+    background-color:slateblue;
+    
+
+    display: inline-block;
+  
+  border: none;
+  color: #FFFFFF;
+  
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  button:hover span {
+    padding-right: 25px;
+  }
+  
+  button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+
+  
+
+
+

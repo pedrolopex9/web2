@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="form/style.css" rel="stylesheet">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <div style="font-size: 4em; text-align: center;">Suas Tarefas</div>
+    <ul id="task-list" style="padding-top: 10em; text-align: center; position: absolute; left: 50%; transform: translateX(-50%);">
+
+
+    <script>
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            return new Date(dateString).toLocaleDateString('pt-BR', options);
+        }
+
+        function fetchTasks() {
+            fetch('/tasks')
+                .then(response => response.json())
+                .then(tasks => {
+                    const taskList = document.getElementById('task-list');
+                    taskList.innerHTML = '';
+                    tasks.forEach(task => {
+                        const listItem = document.createElement('li');
+                        listItem.className = 'task-item';
+
+                        const taskText = document.createElement('span');
+                        taskText.textContent = `${task.tarefa} - ${formatDate(task.data_final)}`;
+                        listItem.appendChild(taskText);
+
+                        const editButton = document.createElement('button');
+                        editButton.className = 'botao-editar';
+                        editButton.textContent = 'Editar';
+                        editButton.addEventListener('click', () => {
+                            window.location.href = `/editartarefa/${task.id}`;
+                        });
+                        listItem.appendChild(editButton);
+
+                        const deleteButton = document.createElement('button');
+                        deleteButton.className = 'botao-apagar';
+                        deleteButton.textContent = 'Apagar';
+                        deleteButton.addEventListener('click', () => {
+                            window.location.href = `/apagartarefa/${task.id}`;
+                        });
+                        listItem.appendChild(deleteButton);
+
+                        taskList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching tasks:', error));
+        }
+
+        window.onload = fetchTasks;
+    </script>
+</body>
+</html>

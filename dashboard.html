@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="/form/style.css">
+</head>
+<body>
+    <div>
+        <a style="font-size: 4em;">Perfomace List</a>
+    </div>
+    <div class="dashboard">
+        <a href="/inserir"><button style="vertical-align:middle"><span>Inserir tarefa</span></button></a>
+        <a href="/listar"><button style="vertical-align:middle"><span>Listar tarefas</span></button></a>
+        <a href="/"><button style="vertical-align:middle"><span>Sair</span></button></a>
+    </div>
+    <div id="jokeContainer">
+        <h2>Piada do chuck Norris</h2>
+        <div id="jokeText"></div>
+        <div id="jokeIcon"></div>
+    </div>
+    <script>
+        function getChuckNorrisJoke() {
+            fetch('https://api.chucknorris.io/jokes/random')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Erro ao obter piada do Chuck Norris');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const jokeTextElement = document.getElementById('jokeText');
+                    const jokeIconElement = document.getElementById('jokeIcon');
+
+                    jokeTextElement.textContent = data.value;
+                    jokeIconElement.innerHTML = `<img src="${data.icon_url}" alt="Chuck Norris Icon">`;
+                })
+                .catch(error => {
+                    console.error('Erro ao obter piada do Chuck Norris:', error);
+                });
+        }
+
+        // Chama a função ao carregar a página
+        document.addEventListener('DOMContentLoaded', getChuckNorrisJoke);
+    </script>
+</body>
+</html>

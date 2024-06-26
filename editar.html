@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/form/style.css" rel="stylesheet">
+    <title>Editar Tarefa</title>
+</head>
+<body>
+    <h1>Editar Tarefa</h1>
+    <form id="edit-task-form" action="/atualizartarefa" method="POST">
+        <input type="hidden" name="id" id="task-id">
+        <label for="tarefa">Tarefa:</label>
+        <input type="text" name="tarefa" id="task-name" required>
+        <label for="data_final">Data Final:</label>
+        <input type="date" name="data_final" id="task-date" required>
+        <button type="submit">Salvar</button>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.pathname.split('/').pop());
+            const taskId = window.location.pathname.split('/')[2];
+
+            fetch(`/tasks/${taskId}`)
+                .then(response => response.json())
+                .then(taks => {
+                    document.getElementById('task-id').value = taks.id;
+                    document.getElementById('task-name').value = taks.tarefa;
+                    document.getElementById('task-date').value = taks.data_final.split('T')[0];
+                })
+                .catch(error => console.error('Error fetching task:', error));
+        });
+    </script>
+</body>
+</html>

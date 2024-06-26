@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href = "form/style.css" rel = "stylesheet">
+</head>
+<body>
+    <div style="font-size: 4em ; text-align: center;">Inserir Tarefa</div>
+    <div class = "sec2">
+        <form id = "register" action="form/inserir" method="POST" style="padding-top: 15em; position: absolute; position: absolute; margin-left: 2em;">
+            
+            <label for="tarefa" style="font-size: 1em;">Tarefa:</label>
+            <input type= "text" id="tarefa" name="tarefa" placeholder="Tarefa" required>
+            
+            <label for="data_final" style="font-size: 1em;">Data Final:</label>
+            <input type="date" id="data_final" name="data_final" required>
+            
+            <button type="submit">Registrar</button>
+        </form>
+    </div>
+</body>
+</html>
